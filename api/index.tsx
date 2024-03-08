@@ -14,9 +14,9 @@ type State = {
 
 export const app = new Frog<State>({
   basePath: "/api/frame",
-  secret: process.env.FROG_SECRET,
-  browserLocation: "https://warpcast.notion.site/The-Storage-Fairy-53cfd5d20596482883c2a76f5ce97328",
-  dev: { enabled: false},
+  // secret: process.env.FROG_SECRET,
+  // browserLocation: "https://warpcast.notion.site/The-Storage-Fairy-53cfd5d20596482883c2a76f5ce97328",
+  dev: { enabled: false },
   initialState: {
     user: null,
     giver: null,
@@ -49,13 +49,15 @@ app.transaction("/rent", async (c) => {
 
 app.frame("/", async (c) => {
   return c.res({
-    image: 'https://storage-fairy.vercel.app/storage-fairy.png',
+    image: "https://storage-fairy.vercel.app/storage-fairy.png",
     intents: [
       <TextInput placeholder="Enter a username" />,
       <Button value="find" action="/find">
         🔍 Find user
       </Button>,
-      <Button.Link href="https://warpcast.notion.site/The-Storage-Fairy-53cfd5d20596482883c2a76f5ce97328">More info</Button.Link>,
+      <Button.Link href="https://warpcast.notion.site/The-Storage-Fairy-53cfd5d20596482883c2a76f5ce97328">
+        More info
+      </Button.Link>,
     ],
   });
 });
